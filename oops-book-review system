@@ -1,0 +1,28 @@
+class Book:
+    
+    def __init__(self,title,author):
+        self.title = title
+        self.author = author
+        self.list_of_reviews = []
+
+    def add_review(self,review):
+        self.list_of_reviews.append(review)
+
+    def count_review(self):
+        return len(self.list_of_reviews)
+    
+    def display_all_reviews(self):
+        if not self.list_of_reviews:
+            print("No reviews available.")
+        else:
+            print(f"Reviews for '{self.title}':")
+            for i, review in enumerate(self.list_of_reviews, start=1):
+                print(f"{i}. {review}")
+
+book1 = Book("Atomic Habits", "James Clear")
+
+book1.add_review("Very motivating and practical.")
+book1.add_review("Easy to understand and apply.")
+
+print("Total reviews:", book1.count_review())
+book1.display_all_reviews()
